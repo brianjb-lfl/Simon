@@ -1,17 +1,18 @@
 function simonMain(){
 
   let simonSeq;
-  let gameInProg=true;
-  let userPlaying=true;
+  let gameInProg;
+  let userPlaying;
   const colors = ["red", "blue", "yellow", "green"];
 
 
   startSimon();
+  userPlaying = true;
 
   while (userPlaying) {
  
     console.log('\n *** STARTING NEW GAME');
-  
+    gameInProg = true;
     simonSeq=[];
   
     while(gameInProg){
@@ -20,7 +21,9 @@ function simonMain(){
       alert('LEVEL '+ simonSeq.length + ': demonstrating sequence');
       console.log('\n LEVEL ' + simonSeq.length + '\n demonstrating sequence');
       console.log(simonSeq);
-      
+      document.getElementById("runLevel").innerHTML = 'Level ' + simonSeq.length;
+
+
       if(prompt("Did user get it right?","<y or n>").toLowerCase() === 'y'){
         console.log('user got it right');
       }
@@ -47,6 +50,3 @@ function startSimon(){
 	console.log('user clicks \"Play!\"');
 	alert('display landing - user clicks \"Play!\"')
 }
-
-
-simonMain();
