@@ -1,3 +1,42 @@
+* {
+	font-family: arial;
+}
+
+.cbutton {
+	display: block;
+	height: 60px;
+	width: 120px;
+	margin-bottom: 10px;
+	font-size: 20px;
+	color: white;
+}
+
+.fbutton {
+	display: inline-block;
+	height: 40px;
+	width: 100px;
+	margin-top: 160px;
+	margin-left: 10px;
+	font-size: 16px;
+	color: white;
+}
+
+.button-new {
+	background-color: green;
+}
+
+.button-end {
+	background-color: red;
+}
+
+.button-green {
+	background-color: green;
+}
+
+.button-red {
+	background-color: red;
+}
+
 .button-start {
 	display: block;
 	height: 40px;
