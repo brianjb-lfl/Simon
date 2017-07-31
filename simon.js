@@ -4,7 +4,7 @@ let colors = ['green', 'red', 'blue', 'yellow'];
 
 function btnStart(){
   // called from landing page, user triggers first game
-  // hide overlay
+  document.getElementById("landing-Overlay").style.width = "0%";
   gameRound();
 }
 
@@ -19,13 +19,30 @@ function gameRound(){
 function newGame() {
   // in active session, after completing game user triggers another game
   document.getElementById("postGame").innerHTML = "";
+  playMode();
   simonSeq = [];
   gameRound();
 }
 
-function endSession() {
-  // in active session, after completing game user opts out
-  document.getElementById("postGame").innerHTML = "Thanks for playing!";
+function procGuess(gColor){
+  if(simonSeq[userSeq.length] === gColor) {
+    // current guess correct
+    if(simonSeq.length === (userSeq.length + 1)) {
+      // user completed level successfully, trigger new level
+      gameRound();
+    }
+    else {
+      // user successful so far, level still in progress, wait for next guess
+      userSeq.push(gColor);
+    }
+  }
+  else {
+    // user failed, update text, prompt for "play again / exit"
+    document.getElementById("runLevel").innerHTML = "Levels completed:  " + (simonSeq.length-1);
+    document.getElementById("tempSimonSeq").innerHTML = "";       // *** remove this
+    document.getElementById("postGame").innerHTML = "Game over - Play again?";
+    endGMode();
+  }
 }
 
 function btnPress(btnDesc){
@@ -36,24 +53,7 @@ function btnPress(btnDesc){
     case 'red':
     case 'blue':
     case 'yellow':
-      if(simonSeq[userSeq.length] === btnDesc) {
-        // current guess correct
-        if(simonSeq.length === (userSeq.length + 1)) {
-          // user completed level successfully, trigger new level
-          gameRound();
-        }
-        else {
-          // user successful so far, level still in progress, wait for next guess
-          userSeq.push(btnDesc);
-        }
-      }
-      else {
-        // user failed, update text, prompt for "play again / exit"
-        document.getElementById("runLevel").innerHTML = "Levels completed:  " + (simonSeq.length-1);
-        document.getElementById("tempSimonSeq").innerHTML = "";       // *** remove this
-        document.getElementById("postGame").innerHTML = "Game over - Play again?";
-      }
-
+      procGuess(btnDesc);
       break;
     // game end cases
     case 'again':
@@ -62,8 +62,37 @@ function btnPress(btnDesc){
       break;
     case 'quit':
       // user opts out
-      endSession();
+      closeMode();
       break;
   }
 
+}
+
+function playMode(){
+  // color buttons active, post-game buttons hidden
+  document.getElementById("btnG").disabled = false;
+  document.getElementById("btnR").disabled = false;
+  document.getElementById("btnB").disabled = false;
+  document.getElementById("btnY").disabled = false;
+
+  document.getElementById("btnPA").style.visibility = "hidden";
+  document.getElementById("btnQ").style.visibility = "hidden";
+}
+
+function endGMode(){
+  // post-game buttons visible, color buttons disabled
+  document.getElementById("btnG").disabled = true;
+  document.getElementById("btnR").disabled = true;
+  document.getElementById("btnB").disabled = true;
+  document.getElementById("btnY").disabled = true;
+
+  document.getElementById("btnPA").style.visibility = "visible";
+  document.getElementById("btnQ").style.visibility = "visible";  
+}
+
+function closeMode(){
+  // after user quits session, re-hide post-game buttons, update text
+  document.getElementById("postGame").innerHTML = "Thanks for playing!";
+  document.getElementById("btnPA").style.visibility = "hidden";
+  document.getElementById("btnQ").style.visibility = "hidden";    
 }
