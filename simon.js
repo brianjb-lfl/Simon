@@ -1,6 +1,7 @@
 let simonSeq = [];
 let userSeq = [];
 let colors = ['green', 'red', 'blue', 'yellow'];
+let simonStat = 'waiting';
 
 function btnStart(){
   // called from landing page, user triggers first game
@@ -10,10 +11,14 @@ function btnStart(){
 
 function gameRound(){
   // new round - add a color to sequence, reset user guess array and update text
+  console.log('start gameRound')
   simonSeq.push(colors[parseInt(Math.random()*4)]);
   userSeq = [];
   document.getElementById("runLevel").innerHTML = "Level " + simonSeq.length;
   document.getElementById("tempSimonSeq").innerHTML = simonSeq;       // *** remove this
+  simonStat = 'playing';
+  playSimonSeq();
+  simonStat = 'waiting';
 }
 
 function newGame() {
@@ -46,27 +51,37 @@ function procGuess(gColor){
 }
 
 function btnPress(btnDesc){
-  // fields all buttons except "start" button on landing page
-  switch(btnDesc) {
-    // game play cases
-    case 'green':
-    case 'red':
-    case 'blue':
-    case 'yellow':
-      procGuess(btnDesc);
-      break;
-    // game end cases
-    case 'again':
-      // user wants to play another game
-      newGame();
-      break;
-    case 'quit':
-      // user opts out
-      closeMode();
-      break;
+  if(simonStat === 'waiting'){
+    // fields all buttons except "start" button on landing page
+    switch(btnDesc) {
+      // game play cases
+      case 'green':
+      case 'red':
+      case 'blue':
+      case 'yellow':
+        procGuess(btnDesc);
+        break;
+      // game end cases
+      case 'again':
+        // user wants to play another game
+        newGame();
+        break;
+      case 'quit':
+        // user opts out
+        closeMode();
+        break;
+    }
   }
-
 }
+
+function playSimonSeq(){
+  document.getElementById("btnG").click();
+  setTimeout()
+  document.getElementById("btnR").click();
+  document.getElementById("btnB").click();
+  document.getElementById("btnY").click(); 
+}
+
 
 function playMode(){
   // color buttons active, post-game buttons hidden

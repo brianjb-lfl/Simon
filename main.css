@@ -14,7 +14,7 @@ h1, h2 {
 
 h1 {
 	font-size: 48px;
-	line-height: 180%;
+	line-height: 100%;
 }
 
 h2 {
@@ -37,20 +37,21 @@ p {
 }
 
 section {
-	margin-bottom: 120px;
+	margin-bottom: 80px;
 }
 
 .preBtnContainer {
 	display: block;
 	width: 134px;
-	margin-top: 120px;
+	margin-top: 100px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .playBtnContainer {
 	display: block;
-	width: 348px;
+	position: relative;
+	width: 438px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -66,7 +67,7 @@ section {
 	display: inline-block;
 	margin: 5px;
 	padding: 0;
-	border-width: 2px;
+	border-width: 0px;
 	height: 30px;
 	width: 120px;
 	color: white;
@@ -76,31 +77,88 @@ section {
 
 .playBtn{
 	display: inline-block;
-	margin: 5px;
+	position: relative;
+	margin: 8px;
 	padding: 0;
-	border-width: 2px;
-	height: 120px;
-	width: 160px;
+	border-width: 0px;
+	height: 200px;
+	width: 200px;
+	font-size: 0;
+	outline: none;
 }
 
 .btn-green{
 	background-color: green;
+	border-radius: 100% 0 0 0;
+}
+
+.btn-green:hover{
+	background-color: #025002;
+}
+
+.btn-green:active{
+	background-color: #70f904;
 }
 
 .btn-red{
 	background-color: red;
+	border-radius: 0 100% 0 0;2be4e2
+}
+
+.btn-red:hover{
+	background-color: #980000;
+}
+
+.btn-red:active{
+	background-color: #ff0055;
 }
 
 .btn-blue{
 	background-color: blue;
+	border-radius: 0 0 100% 0;
+}
+
+.btn-blue:hover{
+	background-color: #020292;
+}
+
+.btn-blue:active{
+	background-color: #2be4e2;
 }
 
 .btn-yellow{
 	background-color: yellow;
+	border-radius: 0 0 0 100%;
+}
+
+.btn-yellow:hover{
+	background-color: #6f6f00;
+}
+
+.btn-yellow:active{
+	background-color: #f9f986;
+}
+
+#btnSt{
+	position: relative;
+	border-radius: 5px;
+	z-index: 2;
 }
 
 #btnPA, #btnQ{
 	visibility: hidden;
+	border-radius: 5px;
+}
+
+#btnCtr{
+	height: 140px;
+	width: 140px;
+	left: 149px;
+	top: 149px;
+	z-index: 0;
+	border-radius: 100%;
+	background-color: black;
+	position: absolute;
 }
 
 #landing-Overlay {
