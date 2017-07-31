@@ -86,30 +86,14 @@ section {
 	background-color: green;
 }
 
-.btn-green:active{
-	background-color: light green;
-}
-
 .btn-red{
 	background-color: red;
-}
-
-.btn-red:active{
-	background-color: light red;
 }
 
 .btn-blue{
 	background-color: blue;
 }
 
-.btn-blue:active{
-	background-color: light blue;
-}
-
 .btn-yellow{
 	background-color: yellow;
-}
-
-.btn-yellow:active{
-	background-color: light yellow;
 }
