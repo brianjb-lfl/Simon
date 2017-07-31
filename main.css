@@ -13,7 +13,8 @@ h1, h2 {
 }
 
 h1 {
-	font-size: 32px;
+	font-size: 48px;
+	line-height: 180%;
 }
 
 h2 {
@@ -30,19 +31,19 @@ h3 {						/* for temp section labels */
 
 p {
 	color: white;
-	font-size: 18px;
+	font-size: 24px;
 	text-align: center;
-	line-height: 40%;
+	line-height: 60%;
 }
 
 section {
-	margin-bottom: 60px;
+	margin-bottom: 120px;
 }
 
 .preBtnContainer {
 	display: block;
 	width: 134px;
-	margin-top: 20px;
+	margin-top: 120px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -97,3 +98,18 @@ section {
 .btn-yellow{
 	background-color: yellow;
 }
+
+#btnPA, #btnQ{
+	visibility: hidden;
+}
+
+#landing-Overlay {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0, 0.9);
+	overflow-x: hidden;
+	padding-top: 160px;
