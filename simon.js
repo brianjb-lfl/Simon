@@ -1,5 +1,7 @@
 let simonSeq = [];
+let userSeq = [];
 let colors = ['green', 'red', 'blue', 'yellow'];
+//I made a change to the version on the branch
 
 function btnStart(){
   // hide overlay
