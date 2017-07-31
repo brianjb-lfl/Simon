@@ -7,12 +7,32 @@
 </head>
 <body>
 	<script type="text/javascript" src="./simon.js"></script>
-	<button class="button-start" onclick="simonMain();">Start</button>
-	<h2 id="runLevel"></h2>
-	<button class="cbutton button-red">User WRONG</button>
-	<button class="cbutton button-green">User CORRECT</button>
-	<h2 id="newGameYN">Play Again?</h2>
-	<button class="fbutton button-new">Yes</button>
-	<button class="fbutton button-end">No</button>
+	<section id="pre-Game" role="region">
+		<h3>Pre-game:  </h3>  <!-- ***remove this -->
+		<h1>Simon</h1>
+		<p>Repeat the pattern.</p>
+		<p>Move to the next level.</p>
+		<div class="preBtnContainer">
+			<button class="ppBtn btn-green" onclick="btnStart();">Start</button>
+		</div>
+	</section>
+	<section id="game-Play" role="region">
+		<h3>Game play:  </h3><h3 id="tempSimonSeq"></h3>  <!-- ***remove this -->
+		<h2 id="runLevel"></h2>
+		<div class="playBtnContainer">
+			<button class="playBtn btn-green" onclick="btnPress('green');"></button>
+			<button class="playBtn btn-red" onclick="btnPress('red');"></button><br>
+			<button class="playBtn btn-yellow" onclick="btnPress('yellow');"></button>
+			<button class="playBtn btn-blue" onclick="btnPress('blue');"></button>
+		</div>
+	</section>
+	<section id="post-Game" role="region">
+		<h3>Post-game:  </h3>  <!-- ***remove this -->
+		<h2 id="postGame"></h2>
+		<div class="postBtnContainer">
+			<button class="ppBtn btn-green" onclick="btnPress('again');">Play Again</button>
+			<button class="ppBtn btn-red" onclick="btnPress('quit');">Quit</button>
+		</div>
+	</section>
 </body>
 </html>

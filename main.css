@@ -2,56 +2,114 @@
 	font-family: arial;
 }
 
-.cbutton {
-	display: block;
-	height: 60px;
-	width: 120px;
-	margin-bottom: 10px;
-	font-size: 20px;
-	color: white;
+body {
+	background-color: black;
 }
 
-.fbutton {
-	display: inline-block;
-	height: 40px;
-	width: 100px;
-	margin-top: 160px;
-	margin-left: 10px;
-	font-size: 16px;
-	color: white;
+h1, h2 {
+	color: yellow;
+	font-weight: bold;
+	text-align: center;
 }
 
-.button-new {
-	background-color: green;
-}
-
-.button-end {
-	background-color: red;
-}
-
-.button-green {
-	background-color: green;
-}
-
-.button-red {
-	background-color: red;
-}
-
-.button-start {
-	display: block;
-	height: 40px;
-	width: 160px;
-	margin-top: 20px;
-	margin-bottom: 120px;
-	margin-right: auto;
-	margin-left: auto;
-	background-color: blue;
-	color: white;
-	font-size: 20px;
+h1 {
+	font-size: 32px;
 }
 
 h2 {
+	font-size: 22px;
+}
+
+h3 {						/* for temp section labels */
+	display: inline;
+	font-size: 14px;
+	color: grey;
+	font-weight: bold;
+	text-align: left;
+}
+
+p {
+	color: white;
 	font-size: 18px;
 	text-align: center;
-	color: black;
+	line-height: 40%;
+}
+
+section {
+	margin-bottom: 60px;
+}
+
+.preBtnContainer {
+	display: block;
+	width: 134px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.playBtnContainer {
+	display: block;
+	width: 348px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.postBtnContainer {
+	display: block;
+	width: 268px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ppBtn{
+	display: inline-block;
+	margin: 5px;
+	padding: 0;
+	border-width: 2px;
+	height: 30px;
+	width: 120px;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.playBtn{
+	display: inline-block;
+	margin: 5px;
+	padding: 0;
+	border-width: 2px;
+	height: 120px;
+	width: 160px;
+}
+
+.btn-green{
+	background-color: green;
+}
+
+.btn-green:active{
+	background-color: light green;
+}
+
+.btn-red{
+	background-color: red;
+}
+
+.btn-red:active{
+	background-color: light red;
+}
+
+.btn-blue{
+	background-color: blue;
+}
+
+.btn-blue:active{
+	background-color: light blue;
+}
+
+.btn-yellow{
+	background-color: yellow;
+}
+
+.btn-yellow:active{
+	background-color: light yellow;
 }
