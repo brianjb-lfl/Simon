@@ -10,11 +10,9 @@ function btnStart(){
 
 function gameRound(){
   // new round - add a color to sequence, reset user guess array and update text
-  console.log('start gameRound')
   simonSeq.push(colors[parseInt(Math.random()*4)]);
   userSeq = [];
   document.getElementById("runLevel").innerHTML = "Level " + simonSeq.length;
-  document.getElementById("tempSimonSeq").innerHTML = simonSeq;       // *** remove this
   playSimonSeq();
 }
 
@@ -41,7 +39,6 @@ function procGuess(gColor){
   else {
     // user failed, update text, prompt for "play again / exit"
     document.getElementById("runLevel").innerHTML = "Levels completed:  " + (simonSeq.length-1);
-    document.getElementById("tempSimonSeq").innerHTML = "";       // *** remove this
     document.getElementById("postGame").innerHTML = "Game over - Play again?";
     endGMode();
   }
@@ -50,13 +47,6 @@ function procGuess(gColor){
 function btnPress(btnDesc){
   // fields all buttons except "start" button on landing page
   switch(btnDesc) {
-    // game play cases
-    case 'green':
-    case 'red':
-    case 'blue':
-    case 'yellow':
-      procGuess(btnDesc);
-      break;
     // game end cases
     case 'again':
       // user wants to play another game
@@ -65,6 +55,10 @@ function btnPress(btnDesc){
     case 'quit':
       // user opts out
       closeMode();
+      break;
+    //game play cases; green, red, blue, yellow
+    default:
+      procGuess(btnDesc);
       break;
   }
 }
@@ -75,7 +69,6 @@ function playSimonSeq(){
   let currBtn;
 
   function toggleButton(el, idx, cCode){
-    console.log('toggleButton ' + idx);
     setTimeout(function(){
       el.style.backgroundColor = cCode;
       setTimeout(function(){
