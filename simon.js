@@ -64,7 +64,7 @@ function btnPress(btnDesc){
 }
 
 function playSimonSeq(){
-  let bPause = 800;
+  let bPause = 600;
   let currBtnID;
   let currBtn;
 
