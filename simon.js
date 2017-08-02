@@ -1,7 +1,6 @@
 let simonSeq = [];
 let userSeq = [];
 let colors = ['green', 'red', 'blue', 'yellow'];
-let simonStat = 'waiting';
 
 function btnStart(){
   // called from landing page, user triggers first game
@@ -16,9 +15,7 @@ function gameRound(){
   userSeq = [];
   document.getElementById("runLevel").innerHTML = "Level " + simonSeq.length;
   document.getElementById("tempSimonSeq").innerHTML = simonSeq;       // *** remove this
-  simonStat = 'playing';
   playSimonSeq();
-  simonStat = 'waiting';
 }
 
 function newGame() {
@@ -51,37 +48,60 @@ function procGuess(gColor){
 }
 
 function btnPress(btnDesc){
-  if(simonStat === 'waiting'){
-    // fields all buttons except "start" button on landing page
-    switch(btnDesc) {
-      // game play cases
-      case 'green':
-      case 'red':
-      case 'blue':
-      case 'yellow':
-        procGuess(btnDesc);
-        break;
-      // game end cases
-      case 'again':
-        // user wants to play another game
-        newGame();
-        break;
-      case 'quit':
-        // user opts out
-        closeMode();
-        break;
-    }
+  // fields all buttons except "start" button on landing page
+  switch(btnDesc) {
+    // game play cases
+    case 'green':
+    case 'red':
+    case 'blue':
+    case 'yellow':
+      procGuess(btnDesc);
+      break;
+    // game end cases
+    case 'again':
+      // user wants to play another game
+      newGame();
+      break;
+    case 'quit':
+      // user opts out
+      closeMode();
+      break;
   }
 }
 
 function playSimonSeq(){
-  document.getElementById("btnG").click();
-  setTimeout()
-  document.getElementById("btnR").click();
-  document.getElementById("btnB").click();
-  document.getElementById("btnY").click(); 
-}
+  let bPause = 800;
+  let currBtnID;
+  let currBtn;
 
+  function toggleButton(el, idx, cCode){
+    console.log('toggleButton ' + idx);
+    setTimeout(function(){
+      el.style.backgroundColor = cCode;
+      setTimeout(function(){
+        el.style.backgroundColor = "";
+      }, bPause);
+    }, bPause*idx*2);
+  }
+
+  function btnLoop(){
+    const actColors = {
+      btnG: '#70f904',
+      btnR: '#ffaaaa',
+      btnB: '#2be4e2',
+      btnY: '#ffffbf'
+    }
+    
+    for (let pssIdx = 1; pssIdx<=simonSeq.length; pssIdx++){
+      currBtnID = "btn"+simonSeq[pssIdx-1].toUpperCase().charAt(0);
+      currBtn = document.getElementById(currBtnID);
+      toggleButton(currBtn, pssIdx, actColors[currBtnID]);
+    }
+  }
+
+  btnLoop();
+
+}
 
 function playMode(){
   // color buttons active, post-game buttons hidden
