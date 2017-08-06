@@ -7,29 +7,35 @@
 </head>
 <body>
 	<script type="text/javascript" src="./simon.js"></script>
+	<audio id="audiobtnY" src="830.wav" ></audio>
+	<audio id="audiobtnB" src="880.wav" ></audio>
+	<audio id="audiobtnR" src="932.wav" ></audio>
+	<audio id="audiobtnG" src="987.wav" ></audio>
 	<section id="landing-Overlay" role="region">
 		<h1>Simon</h1>
 		<p>Repeat the pattern.</p>
 		<p>Move to the next level.</p>
 		<div class="preBtnContainer">
-			<button id="btnSt" class="ppBtn btn-green" onclick="btnStart();">Start</button>
+			<button id="btnSt" class="ppBtn btn-green-pp" onclick="btnStart();">Start</button>
 		</div>
 	</section>
 	<section id="game-Play" role="region">
 		<h1>Simon</h1>
 		<h2 id="runLevel"></h2>
 		<div class="playBtnContainer">
-			<button id="btnG" class="playBtn btn-green" onclick="btnPress('green');"></button>
-			<button id="btnR" class="playBtn btn-red" onclick="btnPress('red');"></button><br>
-			<button id="btnY" class="playBtn btn-yellow" onclick="btnPress('yellow');"></button>
-			<button id="btnB" class="playBtn btn-blue" onclick="btnPress('blue');"></button>
-			<div id="btnCtr" onclick="");></div>
+			<div id="playBkgd">
+				<button id="btnG" class="playBtn btn-green" onclick="btnPress('btnG');"></button>
+				<button id="btnR" class="playBtn btn-red" onclick="btnPress('btnR');"></button><br>
+				<button id="btnY" class="playBtn btn-yellow" onclick="btnPress('btnY');"></button>
+				<button id="btnB" class="playBtn btn-blue" onclick="btnPress('btnB');"></button>
+				<div id="btnCtr"></div>
+			</div>
 		</div>
 	</section>
 	<section id="post-Game" role="region">
 		<h2 id="postGame"></h2>
 		<div class="postBtnContainer">
-			<button id="btnPA" class="ppBtn btn-green" onclick="btnPress('again');">Play Again</button>
+			<button id="btnPA" class="ppBtn btn-green-pp" onclick="btnPress('again');">Play Again</button>
 			<button id="btnQ" class="ppBtn btn-red" onclick="btnPress('quit');">Quit</button>
 		</div>
 	</section>
