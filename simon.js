@@ -1,6 +1,7 @@
 let simonSeq = [];
 let userSeq = [];
-let colors = ['green', 'red', 'blue', 'yellow'];
+let colors = ['btnG', 'btnR', 'btnB', 'btnY'];
+
 
 function btnStart(){
   // called from landing page, user triggers first game
@@ -59,22 +60,24 @@ function btnPress(btnDesc){
     //game play cases; green, red, blue, yellow
     default:
       procGuess(btnDesc);
+      document.getElementById('audio'+btnDesc).play();
       break;
   }
 }
 
 function playSimonSeq(){
-  let bPause = 600;
+  let bPause = 400;
   let currBtnID;
   let currBtn;
 
-  function toggleButton(el, idx, cCode){
+  function toggleButton(el, idx, cCode, bID){
     setTimeout(function(){
       el.style.backgroundColor = cCode;
+      document.getElementById('audio'+bID).play();
       setTimeout(function(){
         el.style.backgroundColor = "";
-      }, bPause);
-    }, bPause*idx*2);
+      }, bPause+200);
+    }, (bPause*idx*2)+1500);
   }
 
   function btnLoop(){
@@ -85,10 +88,9 @@ function playSimonSeq(){
       btnY: '#ffffbf'
     }
     
-    for (let pssIdx = 1; pssIdx<=simonSeq.length; pssIdx++){
-      currBtnID = "btn"+simonSeq[pssIdx-1].toUpperCase().charAt(0);
-      currBtn = document.getElementById(currBtnID);
-      toggleButton(currBtn, pssIdx, actColors[currBtnID]);
+    for (let pssIdx = 0; pssIdx<simonSeq.length; pssIdx++){
+      currBtn = document.getElementById(simonSeq[pssIdx]);
+      toggleButton(currBtn, pssIdx, actColors[simonSeq[pssIdx]], simonSeq[pssIdx]);
     }
   }
 
